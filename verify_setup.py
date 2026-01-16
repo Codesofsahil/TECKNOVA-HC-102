@@ -1,6 +1,10 @@
+# SOC Platform Setup Verification Script
+# Validates Python version, dependencies, directory structure, and required files
+
 import sys
 import os
 
+# Check if Python version meets minimum requirements (3.8+)
 def check_python_version():
     version = sys.version_info
     if version.major >= 3 and version.minor >= 8:
@@ -10,10 +14,12 @@ def check_python_version():
         print("✗ Python 3.8+ required. Current:", f"{version.major}.{version.minor}.{version.micro}")
         return False
 
+# Verify all required Python packages are installed
 def check_dependencies():
     required = ['flask', 'numpy', 'pandas', 'sklearn', 'requests']
     missing = []
     
+    # Try importing each package to verify installation
     for package in required:
         try:
             __import__(package)
@@ -24,7 +30,9 @@ def check_dependencies():
     
     return len(missing) == 0
 
+# Validate that all necessary directories exist
 def check_directory_structure():
+    # Core directories needed for SOC platform operation
     required_dirs = [
         'core/normalization',
         'core/correlation',
@@ -49,7 +57,9 @@ def check_directory_structure():
     
     return all_exist
 
+# Check for existence of critical files
 def check_files():
+    # Essential files for platform functionality
     required_files = [
         'app.py',
         'requirements.txt',
@@ -74,6 +84,7 @@ def check_files():
     
     return all_exist
 
+# Main verification routine - runs all checks and reports results
 def main():
     print("=" * 60)
     print("SOC Platform - Setup Verification")
@@ -91,6 +102,7 @@ def main():
     print("\n4. Checking Required Files...")
     files_ok = check_files()
     
+    # Display final results and next steps
     print("\n" + "=" * 60)
     if python_ok and deps_ok and dirs_ok and files_ok:
         print("✓ ALL CHECKS PASSED!")
