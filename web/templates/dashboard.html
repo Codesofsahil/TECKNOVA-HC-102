@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Platform - Intelligent Security Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ SOC Platform - Security Operations Center</h1>
+            <div class="header-stats">
+                <span id="live-indicator">🟢 LIVE</span>
+                <span id="current-time"></span>
+            </div>
+        </header>
+
+        <nav>
+            <button class="nav-btn active" onclick="showTab('overview')">Overview</button>
+            <button class="nav-btn" onclick="showTab('alerts')">Alerts</button>
+            <button class="nav-btn" onclick="showTab('incidents')">Incidents</button>
+            <button class="nav-btn" onclick="showTab('logs')">Logs</button>
+            <button class="nav-btn" onclick="showTab('analytics')">Analytics</button>
+        </nav>
+
+        <div id="overview" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card critical">
+                    <h3>Critical Alerts</h3>
+                    <div class="stat-value" id="critical-count">0</div>
+                </div>
+                <div class="stat-card high">
+                    <h3>High Priority</h3>
+                    <div class="stat-value" id="high-count">0</div>
+                </div>
+                <div class="stat-card medium">
+                    <h3>Active Incidents</h3>
+                    <div class="stat-value" id="incident-count">0</div>
+                </div>
+                <div class="stat-card info">
+                    <h3>Total Logs</h3>
+                    <div class="stat-value" id="log-count">0</div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Alert Severity Distribution</h3>
+                    <canvas id="severityChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>MITRE ATT&CK Techniques</h3>
+                    <canvas id="mitreChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Attack Timeline (Last 24h)</h3>
+                    <canvas id="timelineChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Top Source Countries</h3>
+                    <canvas id="geoChart"></canvas>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <h3>Top Attackers</h3>
+                <table id="top-attackers-table">
+                    <thead>
+                        <tr>
+                            <th>IP Address</th>
+                            <th>Alert Count</th>
+                            <th>Reputation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="top-attackers-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="alerts" class="tab-content">
+            <div class="filter-bar">
+                <select id="severity-filter" onchange="filterAlerts()">
+                    <option value="">All Severities</option>
+                    <option value="CRITICAL">Critical</option>
+                    <option value="HIGH">High</option>
+                    <option value="MEDIUM">Medium</option>
+                    <option value="LOW">Low</option>
+                </select>
+                <select id="status-filter" onchange="filterAlerts()">
+                    <option value="">All Status</option>
+                    <option value="NEW">New</option>
+                    <option value="INVESTIGATING">Investigating</option>
+                    <option value="RESOLVED">Resolved</option>
+                </select>
+            </div>
+            <div id="alerts-container"></div>
+        </div>
+
+        <div id="incidents" class="tab-content">
+            <div id="incidents-container"></div>
+        </div>
+
+        <div id="logs" class="tab-content">
+            <div class="log-viewer">
+                <div class="log-controls">
+                    <button onclick="loadLogs()">Refresh Logs</button>
+                    <input type="text" id="log-search" placeholder="Search logs..." onkeyup="searchLogs()">
+                </div>
+                <div id="logs-container"></div>
+            </div>
+        </div>
+
+        <div id="analytics" class="tab-content">
+            <div class="analytics-grid">
+                <div class="chart-card">
+                    <h3>Alert Volume Trends</h3>
+                    <canvas id="alertTrendChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Detection Methods</h3>
+                    <canvas id="detectionChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Response Time Analysis</h3>
+                    <canvas id="responseTimeChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Threat Actor Activity</h3>
+                    <canvas id="threatActorChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div class="notification-container" id="notification-container"></div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
