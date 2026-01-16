@@ -6,7 +6,7 @@ A comprehensive, production-ready SOC platform with 66+ features including ML th
 
 ---
 
-## ✨ **Key Features**
+##  **Key Features**
 
 ### **Core Security**
 - 🔍 Multi-source log collection (JSON, Syslog, Windows, Firewall)
