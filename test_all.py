@@ -284,5 +284,6 @@ print("  Generate Data: python test_generator.py")
 
 print("\n" + "=" * 70)
 print("✅ COMPREHENSIVE TEST COMPLETE")
-print("=" * 70) COMPLETE!")
+print("=" * 70)
+ COMPLETE!")
 print("=" * 70)
