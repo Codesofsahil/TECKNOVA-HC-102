@@ -1,0 +1,56 @@
+{
+  "rules": [
+    {
+      "id": "RULE-001",
+      "name": "Brute Force Attack",
+      "description": "Detects multiple failed login attempts from same source",
+      "severity": "HIGH",
+      "threshold": 5,
+      "window_seconds": 300,
+      "mitre_attack": "T1110 - Brute Force",
+      "conditions": {
+        "event_type": "login_failed",
+        "action": "DENY"
+      }
+    },
+    {
+      "id": "RULE-002",
+      "name": "Port Scan Detection",
+      "description": "Detects scanning of multiple ports from single source",
+      "severity": "MEDIUM",
+      "threshold": 10,
+      "window_seconds": 60,
+      "mitre_attack": "T1046 - Network Service Discovery",
+      "conditions": {
+        "unique_field": "dest_port"
+      }
+    },
+    {
+      "id": "RULE-003",
+      "name": "Privilege Escalation",
+      "description": "Detects attempts to gain elevated privileges",
+      "severity": "CRITICAL",
+      "mitre_attack": "T1068 - Exploitation for Privilege Escalation",
+      "keywords": ["sudo", "runas", "administrator", "root", "privilege"]
+    },
+    {
+      "id": "RULE-004",
+      "name": "Suspicious Login Location",
+      "description": "Login from unusual or suspicious IP ranges",
+      "severity": "MEDIUM",
+      "mitre_attack": "T1078 - Valid Accounts",
+      "suspicious_ranges": ["192.168.100.", "10.0.0.", "172.16."]
+    },
+    {
+      "id": "RULE-005",
+      "name": "Data Exfiltration",
+      "description": "Large data transfer to external destination",
+      "severity": "HIGH",
+      "mitre_attack": "T1041 - Exfiltration Over C2 Channel",
+      "threshold_bytes": 10485760,
+      "conditions": {
+        "event_type": "data_transfer"
+      }
+    }
+  ]
+}
