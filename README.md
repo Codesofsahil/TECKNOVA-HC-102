@@ -1,5 +1,9 @@
-<<<<<<< HEAD
 # 🛡️ SOC Platform - Intelligent Security Operations Center
+
+[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Hackathon](https://img.shields.io/badge/Hackathon-TECHNOVA--HC--102-red.svg)](https://github.com/Codesofsahil/TECKNOVA-HC-102)
 
 **Real-Time Security Monitoring with AI-Powered Threat Detection**
 
@@ -7,57 +11,149 @@ A production-ready SOC platform with 75+ features including ML threat prediction
 
 ---
 
-## 🏆 **Winning Features**
+## 🚀 **How to Run the Repository**
 
-### **🎯 Real-Time Monitoring**
-- ⚡ **Live Updates** - All data refreshes every 2 seconds
-- 🔔 **Instant Popups** - Notifications appear for every new log/alert
-- 📊 **Live Charts** - Graphs update automatically with real data
-- 🎨 **Modern UI** - Glassmorphism design with smooth animations
+### **📋 Prerequisites**
+- **Python 3.7+** installed on your system
+- **Git** for cloning the repository
+- **Internet connection** for downloading dependencies
 
-### **🤖 AI-Powered Intelligence**
-- 🧠 **AI Threat Prediction** - ML-based threat scoring (0-100)
-- 💡 **Smart Recommendations** - AI suggests actions based on threats
-- 🎯 **Next Attack Prediction** - Predicts when/what attack will occur
-- 📈 **Behavioral Analytics** - Detects anomalies in real-time
+### **⚡ Quick Setup (5 Minutes)**
 
-### **🗺️ Interactive Attack Map**
-- 🌍 **Global Visualization** - See attacks from countries in real-time
-- 🎮 **Demo Mode** - Auto-simulate attacks for presentations
-- 📊 **Live Statistics** - Attack count, blocked IPs, countries
-- ✨ **Animated Lines** - Beautiful attack path visualization
+#### **Step 1: Clone Repository**
+```bash
+# Clone the repository
+git clone https://github.com/Codesofsahil/TECKNOVA-HC-102.git
 
-### **🚀 Core Security**
-- 🔍 Multi-source log collection (JSON, Syslog, Windows)
-=======
-# 🛡️ SOC Platform - Complete Enterprise Edition
+# Navigate to project directory
+cd TECKNOVA-HC-102
+```
 
-**Intelligent Security Operations Monitoring and Incident Response Platform**
+#### **Step 2: Install Dependencies**
+```bash
+# Install required Python packages
+pip install -r requirements.txt
 
-A comprehensive, production-ready SOC platform with 66+ features including ML threat prediction, SOAR automation, compliance reporting, real-time monitoring, mobile push notifications, cloud storage, and advanced threat hunting.
+# Alternative: Install core dependencies manually
+pip install Flask Flask-CORS requests numpy pandas scikit-learn
+```
+
+#### **Step 3: Start the Platform**
+```bash
+# Start the SOC Platform
+python app.py
+```
+
+#### **Step 4: Access Dashboard**
+1. Open your web browser
+2. Navigate to: **http://localhost:5000**
+3. Login with credentials:
+   - **Username:** `admin`
+   - **Password:** `admin123`
+
+#### **Step 5: Generate Test Data (Optional)**
+```bash
+# In a new terminal, generate sample security data
+python quick_test.py
+
+# Or run comprehensive tests
+python test_all.py
+```
+
+### **🎯 Alternative Setup Methods**
+
+#### **Method 1: Windows Batch File**
+```bash
+# Double-click to run (Windows only)
+start.bat
+```
+
+#### **Method 2: Manual Step-by-Step**
+```bash
+# 1. Check Python version
+python --version
+
+# 2. Create virtual environment (recommended)
+python -m venv soc_env
+soc_env\Scripts\activate  # Windows
+# source soc_env/bin/activate  # Linux/Mac
+
+# 3. Install dependencies
+pip install Flask==2.3.3 Flask-CORS==4.0.0
+pip install requests numpy pandas scikit-learn
+
+# 4. Run application
+python app.py
+```
+
+### **🔧 Troubleshooting**
+
+#### **Common Issues & Solutions:**
+
+**Issue 1: Port 5000 already in use**
+```bash
+# Solution: Change port in app.py or kill existing process
+netstat -ano | findstr :5000  # Windows
+lsof -ti:5000 | xargs kill -9  # Linux/Mac
+```
+
+**Issue 2: Module not found errors**
+```bash
+# Solution: Install missing dependencies
+pip install --upgrade pip
+pip install -r requirements.txt --force-reinstall
+```
+
+**Issue 3: Permission errors**
+```bash
+# Solution: Run with appropriate permissions
+# Windows: Run as Administrator
+# Linux/Mac: Use sudo if needed
+sudo python app.py
+```
+
+### **📱 Platform Features After Setup**
+
+Once running, you'll have access to:
+
+#### **🎯 Real-Time Monitoring**
+- ⚡ Live updates every 2 seconds
+- 🔔 Instant popup notifications
+- 📊 Real-time charts and graphs
+- 🎨 Modern glassmorphism UI
+
+#### **🤖 AI-Powered Intelligence**
+- 🧠 ML-based threat scoring (0-100)
+- 💡 Smart recommendations
+- 🎯 Attack prediction algorithms
+- 📈 Behavioral analytics
+
+#### **🗺️ Interactive Attack Map**
+- 🌍 Global attack visualization
+- 🎮 Demo mode for presentations
+- 📊 Live attack statistics
+- ✨ Animated attack paths
 
 ---
 
-##  **Key Features**
+## 🏆 **Key Features**
 
 ### **Core Security**
 - 🔍 Multi-source log collection (JSON, Syslog, Windows, Firewall)
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 - 🎯 Rule-based correlation (6+ detection rules)
 - 🤖 ML anomaly detection
 - 🚨 Alert prioritization & deduplication
 - 🔐 MITRE ATT&CK mapping
 
-<<<<<<< HEAD
-### **📊 Enterprise Features**
+### **Enterprise Features**
 - 🔐 Authentication & RBAC (Admin/Analyst/Viewer)
-- 📄 Report generation (Executive, Compliance)
+- 📄 Report generation (Executive, Incident, Compliance)
 - 🔍 Vulnerability scanning
 - 🌐 Network monitoring & IP blocking
 - 💾 Automated backups
+- ⚡ API rate limiting
 - 📝 Comprehensive audit logging
 
-=======
 ### **Advanced Features**
 - 📧 Email & Slack notifications
 - 🗺️ Geolocation attack mapping
@@ -67,142 +163,29 @@ A comprehensive, production-ready SOC platform with 66+ features including ML th
 - 🎨 Multiple themes (light/dark/blue/green)
 - 🔔 Alert sound notifications
 
-### **Enterprise Features**
-- 🔐 Authentication & RBAC (Admin/Analyst/Viewer)
-- 📄 Report generation (Executive, Incident, Compliance)
-- 🔍 Vulnerability scanning
-- 🌐 Network monitoring & IP blocking
-- 🤖 ML threat prediction
-- 💾 Automated backups
-- ⚡ API rate limiting
-- 📝 Comprehensive audit logging
-
-### **Advanced Features (Batch 4)**
-- 🔄 Real-time WebSocket dashboard updates
-- 📱 Mobile push notifications (iOS/Android)
-- ☁️ Multi-cloud storage integration (AWS/Azure/GCP)
-- 🕵️ Advanced threat hunting engine
-- 🏢 Comprehensive asset management
-- 🎯 Risk-based threat modeling
-- 📈 Performance monitoring & optimization
-
-### **Automation**
-- 🤖 SOAR playbooks (4 pre-built)
-- 🎯 Automated incident response
-- 📧 Auto-notifications
-- 🔒 Auto-blocking
-- 📊 Auto-reporting
-
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 ---
 
-## 🚀 **Quick Start**
+## 🎮 **Demo & Testing**
 
-<<<<<<< HEAD
-### **1. Install Dependencies**
+### **Quick Demo Mode**
+1. Start the platform: `python app.py`
+2. Open browser: `http://localhost:5000`
+3. Login with `admin` / `admin123`
+4. Click **Attack Map** tab
+5. Click **"🎮 Start Demo Mode"**
+6. Watch real-time attack simulation!
+
+### **Generate Test Data**
 ```bash
-cd K:\Tecknova
-pip install -r requirements.txt
-```
-
-### **2. Start Platform**
-=======
-### **1. Install**
-```bash
-cd K:\Tecknova
-pip install Flask Flask-CORS
-```
-
-### **2. Run**
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
-```bash
-python app.py
-```
-
-<<<<<<< HEAD
-### **3. Access Dashboard**
-=======
-### **3. Access**
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
-```
-http://localhost:5000
-```
-
-<<<<<<< HEAD
-### **4. Login**
-- **Username:** `admin`
-- **Password:** `admin123`
-
-### **5. Generate Test Data**
-```bash
+# Quick test data
 python quick_test.py
+
+# Comprehensive testing
+python test_all.py
+
+# Interactive test generator
+python test_generator.py
 ```
-
-**Watch the magic:**
-- 🔔 Popups appear for each log
-- 📊 Charts update in real-time
-- 📈 Stats refresh automatically
-- 🗺️ Attack map shows activity
-
----
-
-## 📊 **Dashboard Tabs**
-
-### **1. Overview** 
-- 📊 4 stat cards (Critical, High, Incidents, Logs)
-- 📈 Alert severity distribution (doughnut chart with center total)
-- 📉 Live alert trend (updates every 2 seconds)
-- 🎯 Top threat sources table
-- 🤖 **AI Threat Prediction** with threat score meter
-- 💡 **AI Recommendations** based on current threats
-
-### **2. Alerts**
-- 🔍 Filter by severity and status
-- 📋 Detailed alert cards
-- 🎨 Color-coded by severity
-- 🔄 Real-time updates
-
-### **3. Logs**
-- 📝 Beautiful log entries with glassmorphism
-- 🔍 Real-time search
-- 🎨 Color-coded severity badges
-- ✨ Smooth animations
-
-### **4. Analytics**
-- 📈 Alert volume trends (7 days - real data)
-- 🎯 Detection methods radar chart
-- 🔄 Auto-updates with live data
-
-### **5. Reports**
-- 📄 Executive Summary Report
-- 📋 Compliance Reports (ISO 27001, NIST, PCI-DSS, GDPR)
-- 💾 Auto-download as JSON
-- 📝 Recent reports history
-
-### **6. Attack Map** 🆕
-- 🗺️ **Interactive world map** with real-time attacks
-- 🔴 **Animated attack lines** from source to target
-- 🎮 **Demo Mode** - Click to auto-simulate attacks
-- 📊 **Live stats** - Attacks, blocked IPs, countries
-- 🌍 **Top attack sources** list
-
----
-
-## 🎯 **Real-Time Features**
-
-### **Automatic Updates (Every 2 Seconds)**
-- ✅ Stats cards refresh
-- ✅ Charts update with new data
-- ✅ Popups show for new logs/alerts
-- ✅ Logs tab auto-refreshes
-- ✅ AI predictions recalculate
-
-### **Instant Notifications**
-- 🔔 Popup for every new log
-- 🚨 Popup for every new alert
-- ⏱️ Auto-dismiss after 1 second
-- 🎨 Color-coded by severity
-- ✨ Smooth slide-in animation
 
 ---
 
@@ -212,30 +195,10 @@ python quick_test.py
 |--------|-------|
 | **Total Features** | 75+ |
 | **API Endpoints** | 85+ |
-=======
-### **4. Test**
-```bash
-# Generate test data
-python test_generator.py
-
-# Test features
-python test_batch3.py
-```
-
----
-
-## 📊 **Stats**
-
-| Metric | Count |
-|--------|-------|
-| **Total Features** | 66 |
-| **API Endpoints** | 80 |
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 | **Services** | 22 |
 | **Detection Rules** | 6+ |
 | **SOAR Playbooks** | 4 |
 | **Compliance Frameworks** | 4 |
-<<<<<<< HEAD
 | **Dashboard Tabs** | 6 |
 | **Chart Types** | 7 |
 | **AI Features** | 3 |
@@ -243,221 +206,63 @@ python test_batch3.py
 
 ---
 
-## 🎮 **Demo Mode**
-
-Perfect for presentations and hackathon demos!
-
-1. Click **Attack Map** tab
-2. Click **"🎮 Start Demo Mode"** button
-3. Watch:
-   - 🌍 Attacks animate from countries
-   - 🔔 Popups appear for each attack
-   - 📊 Stats update in real-time
-   - 🎯 Attack sources list grows
-
----
-
-## 🔧 **Key API Endpoints**
-
-### **Core**
-- `POST /api/ingest` - Ingest logs
-- `GET /api/stats` - Dashboard statistics
-- `GET /api/alerts` - Get alerts
-- `GET /api/logs` - Get logs
+## 🔧 **API Examples**
 
 ### **Authentication**
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout
-
-### **Reports**
-- `GET /api/reports/executive` - Executive summary
-- `GET /api/compliance/report?framework=<name>` - Compliance report
-=======
-| **Themes** | 4 |
-| **Cloud Providers** | 3 |
-
----
-
-## 🎯 **API Endpoints**
-
-### **Core**
-- `POST /api/ingest` - Ingest logs
-- `GET /api/alerts` - Get alerts
-- `GET /api/incidents` - Get incidents
-- `GET /api/logs` - Get logs
-- `GET /api/stats` - Dashboard stats
-
-### **Authentication**
-- `POST /api/auth/login` - Login
-- `POST /api/auth/logout` - Logout
-- `GET /api/auth/verify` - Verify token
-
-### **Notifications**
-- `POST /api/notifications/configure` - Configure email/slack
-
-### **Geolocation**
-- `GET /api/geolocation/attacks` - Attack map
-- `GET /api/geolocation/stats` - Country stats
-
-### **Export**
-- `GET /api/export/alerts` - Export alerts CSV
-- `GET /api/export/incidents` - Export incidents CSV
-- `GET /api/export/logs` - Export logs CSV
-
-### **Search**
-- `POST /api/search` - Advanced search
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
+```bash
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "admin", "password": "admin123"}'
+```
 
 ### **Threat Intelligence**
-- `GET /api/threat-intel/<ip>` - IP reputation
-- `GET /api/threat-feed/<ip>` - Comprehensive report
+```bash
+curl http://localhost:5000/api/threat-feed/192.168.100.25
+```
 
-<<<<<<< HEAD
-### **Network**
-- `POST /api/network/block` - Block IP
-- `POST /api/network/unblock` - Unblock IP
-=======
-### **Reports**
-- `GET /api/reports/executive` - Executive summary
-- `GET /api/reports/incident/<id>` - Incident report
+### **ML Prediction**
+```bash
+curl -X POST http://localhost:5000/api/ml/predict \
+  -H "Content-Type: application/json" \
+  -d '{"failed_attempts": 5, "unusual_time": true}'
+```
 
-### **Vulnerability**
-- `POST /api/vulnerability/scan` - Scan system
-- `GET /api/vulnerability/history` - Scan history
-- `GET /api/vulnerability/summary` - Summary
-
-### **Network**
-- `GET /api/network/connections` - Active connections
-- `POST /api/network/block` - Block IP
-- `POST /api/network/unblock` - Unblock IP
-- `GET /api/network/stats` - Network stats
-
-### **ML Predictions**
-- `POST /api/ml/predict` - Predict threat
-- `POST /api/ml/predict-next-attack` - Predict timing
-- `GET /api/ml/trends` - Threat trends
-
-### **Backup**
-- `POST /api/backup/create` - Create backup
-- `GET /api/backup/list` - List backups
-- `POST /api/backup/restore/<id>` - Restore backup
-
-### **Batch 4 - Advanced Features**
-- `GET /api/websocket/stats` - WebSocket connection stats
-- `POST /api/mobile/register` - Register mobile device
-- `POST /api/mobile/push` - Send push notification
-- `GET /api/mobile/stats` - Mobile device stats
-- `POST /api/cloud/configure` - Configure cloud storage
-- `POST /api/cloud/upload` - Upload to cloud
-- `POST /api/cloud/sync` - Sync cloud data
-- `GET /api/cloud/stats` - Cloud storage stats
-- `POST /api/hunt/create` - Create hunt query
-- `POST /api/hunt/execute` - Execute threat hunt
-- `POST /api/hunt/ioc` - Hunt IOCs
-- `GET /api/hunt/stats` - Hunt statistics
-- `POST /api/assets/register` - Register asset
-- `GET /api/assets` - Get assets
-- `GET /api/assets/stats` - Asset statistics
-- `POST /api/threat-model/create` - Create threat model
-- `POST /api/threat-model/<id>/threat` - Add threat
-- `POST /api/threat-model/<id>/assess` - Assess risk
-- `GET /api/threat-model/stats` - Modeling stats
-- `POST /api/performance/metric` - Record metric
-- `GET /api/performance/health` - System health
-- `GET /api/performance/metric/<name>` - Metric summary
-- `POST /api/performance/optimize` - Optimize performance
-- `GET /api/performance/stats` - Performance stats
-
-### **Audit**
-- `GET /api/audit/logs` - Audit logs
-- `GET /api/audit/user/<username>` - User activity
-- `GET /api/audit/export` - Export audit trail
-
----
-
-## 🔐 **Default Credentials**
-
-- **Admin:** `admin` / `admin123`
-- **Analyst:** `analyst` / `analyst123`
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
+### **Export Data**
+```bash
+curl http://localhost:5000/api/export/alerts -o alerts.csv
+```
 
 ---
 
 ## 📁 **Project Structure**
 
 ```
-Tecknova/
-<<<<<<< HEAD
+TECHNOVA-HC-102/
 ├── app.py                    # Main Flask application
 ├── core/                     # Backend modules
 │   ├── enhanced_services.py  # 15 consolidated services
-│   └── [11 modules]/         # Security components
-├── web/
-│   ├── templates/
-│   │   └── dashboard.html    # Modern glassmorphism UI
-│   └── static/
-│       ├── css/
-│       └── js/
-│           └── dashboard.js  # Frontend logic
-├── data/                     # Logs & rules storage
-├── README.md                 # This file
-├── GUIDE.md                  # Quick reference
+│   ├── alert_manager/        # Alert management
+│   ├── analytics/            # Behavioral analytics
+│   ├── compliance/           # Compliance reporting
+│   ├── correlation/          # Event correlation
+│   ├── forensics/            # Digital forensics
+│   ├── incident_response/    # Incident handling
+│   ├── ml_detection/         # ML anomaly detection
+│   ├── normalization/        # Log normalization
+│   ├── soar/                 # SOAR automation
+│   └── threat_intel/         # Threat intelligence
+├── web/                      # Frontend assets
+│   ├── templates/            # HTML templates
+│   └── static/               # CSS/JS files
+├── data/                     # Data storage
+│   ├── logs/                 # Log files
+│   └── rules/                # Detection rules
 ├── requirements.txt          # Dependencies
-├── quick_test.py             # Quick test data generator
-└── test_generator.py         # Interactive test generator
-=======
-├── core/
-│   ├── enhanced_services.py      # All 15 services (ONE file)
-│   ├── normalization/             # Log parsing
-│   ├── correlation/               # Detection rules
-│   ├── ml_detection/              # Anomaly detection
-│   ├── alert_manager/             # Alert management
-│   ├── incident_response/         # Auto-response
-│   ├── threat_intel/              # Threat intelligence
-│   ├── soar/                      # SOAR playbooks
-│   ├── analytics/                 # Behavioral analytics
-│   ├── forensics/                 # Digital forensics
-│   └── compliance/                # Compliance reporting
-├── web/
-│   ├── templates/                 # Dashboard HTML
-│   └── static/                    # CSS, JS
-├── config/
-│   └── settings.py                # Configuration
-├── data/
-│   ├── logs/                      # Log storage
-│   └── rules/                     # Detection rules
-├── app.py                         # Main application
-├── test_generator.py              # Test data generator
-├── test_batch3.py                 # Feature tests
-└── README.md                      # This file
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
+├── quick_test.py             # Quick test generator
+├── test_all.py               # Comprehensive tests
+├── start.bat                 # Windows startup script
+└── README.md                 # This file
 ```
-
----
-
-<<<<<<< HEAD
-## 🎨 **UI Features**
-
-### **Design**
-- 🌈 Animated gradient background
-- 💎 Glassmorphism cards with blur effects
-- ✨ Smooth hover effects
-- 🎯 Color-coded severity indicators
-- 💫 Staggered fade-in animations
-
-### **Notifications**
-- 🔔 Eye-catching popup notifications
-- ⏱️ 1-second auto-dismiss
-- 🎨 Gradient backgrounds
-- ✨ Bounce animation on entry
-- 🎯 Icons for each severity
-
-### **Charts**
-- 📊 Doughnut chart (Alert Severity with center total)
-- 📈 Line chart (Live Alert Trend - updates every 2s)
-- 📉 Line chart (Alert Volume Trends - 7 days)
-- 🎯 Radar chart (Detection Methods)
-- 🎨 All charts with white text for dark theme
 
 ---
 
@@ -481,79 +286,46 @@ Tecknova/
 
 ---
 
-## 🎯 **What Makes This Special**
+## 🔐 **Default Credentials**
 
-1. **⚡ Real-Time Everything** - Updates every 2 seconds, instant popups
-2. **🤖 AI-Powered** - Threat prediction, smart recommendations
-3. **🗺️ Interactive Attack Map** - Visual threat monitoring with demo mode
-4. **🎨 Beautiful UI** - Modern glassmorphism design
-5. **📊 Live Charts** - All graphs update with real data
-6. **🔔 Instant Notifications** - Popup for every event
-7. **🎮 Demo Mode** - Perfect for presentations
-8. **📄 Complete Reports** - Executive & compliance ready
+| Role | Username | Password |
+|------|----------|----------|
+| **Admin** | `admin` | `admin123` |
+| **Analyst** | `analyst` | `analyst123` |
+| **Viewer** | `viewer` | `viewer123` |
 
 ---
 
-## 🚀 **Quick Test Workflow**
+## 📚 **Documentation**
+
+- **README.md** - This file (setup & overview)
+- **CHEAT_SHEET.md** - Quick reference guide
+- **START_HERE.md** - Getting started guide
+- **BATCH2_COMPLETE.md** - Batch 2 features
+- **BATCH3_COMPLETE.md** - Batch 3 features
+- **TESTING_GUIDE.md** - Testing instructions
+
+---
+
+## 🎯 **Quick Commands Reference**
 
 ```bash
-# Terminal 1: Start platform
+# Setup
+git clone https://github.com/Codesofsahil/TECKNOVA-HC-102.git
+cd TECKNOVA-HC-102
+pip install -r requirements.txt
+
+# Run
 python app.py
 
-# Terminal 2: Generate test data
+# Test
 python quick_test.py
+python test_all.py
 
-# Browser: Watch the magic!
-# - Popups appear instantly
-# - Charts update live
-# - Stats refresh automatically
-# - Attack map shows activity
-=======
-## 🎯 **Quick Examples**
-
-### Login
-```bash
-curl -X POST http://localhost:5000/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"username": "admin", "password": "admin123"}'
+# Access
+# Browser: http://localhost:5000
+# Login: admin / admin123
 ```
-
-### Check Threat Intelligence
-```bash
-curl http://localhost:5000/api/threat-feed/192.168.100.25
-```
-
-### Predict Threat
-```bash
-curl -X POST http://localhost:5000/api/ml/predict \
-  -H "Content-Type: application/json" \
-  -d '{"failed_attempts": 5, "unusual_time": true}'
-```
-
-### Export Alerts
-```bash
-curl http://localhost:5000/api/export/alerts -o alerts.csv
-```
-
-### Block IP
-```bash
-curl -X POST http://localhost:5000/api/network/block \
-  -H "Content-Type: application/json" \
-  -d '{"ip": "192.168.100.25", "reason": "Brute force"}'
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
-```
-
----
-
-<<<<<<< HEAD
-## 📞 **Files**
-
-- `README.md` - Complete documentation (this file)
-- `GUIDE.md` - Quick reference guide
-- `requirements.txt` - Python dependencies
-- `app.py` - Main application
-- `quick_test.py` - Quick test data generator
-- `test_generator.py` - Interactive test generator
 
 ---
 
@@ -570,97 +342,6 @@ curl -X POST http://localhost:5000/api/network/block \
 
 ---
 
-**Built for Tecknova Hackathon 2024** 🏆  
+**Built for TECHNOVA Hackathon 2024** 🏆  
+**Repository:** https://github.com/Codesofsahil/TECKNOVA-HC-102  
 **Ready to Win!** 💰🚀✨
-=======
-## 📚 **Documentation**
-
-- **README.md** - This file (overview)
-- **CHEAT_SHEET.md** - Quick reference
-- **START_HERE.md** - Getting started guide
-- **BATCH2_COMPLETE.md** - Batch 2 features
-- **BATCH3_COMPLETE.md** - Batch 3 features
-
----
-
-## 🏆 **Compliance**
-
-**Frameworks Supported:**
-- ISO 27001
-- NIST Cybersecurity Framework
-- PCI-DSS
-- GDPR
-
-**Hackathon Requirements:** 100% ✅
-
----
-
-## 🔧 **Tech Stack**
-
-- **Backend:** Python 3.8+, Flask
-- **Frontend:** HTML5, CSS3, JavaScript, Chart.js
-- **ML:** NumPy, Pandas, Scikit-learn
-- **Security:** JWT, RBAC, Rate Limiting
-
----
-
-## ✅ **Status**
-
-**Version:** 4.0  
-**Status:** Production Ready  
-**Features:** 66  
-**Quality:** Enterprise Grade  
-**Organization:** Clean & Consolidated  
-
----
-
-## 🎯 **Quick Examples**
-
-### Mobile Push Notification
-```bash
-curl -X POST http://localhost:5000/api/mobile/push \
-  -H "Content-Type: application/json" \
-  -d '{"type": "alert", "alert": {"severity": "CRITICAL", "title": "Security Breach"}}'
-```
-
-### Cloud Storage Upload
-```bash
-curl -X POST http://localhost:5000/api/cloud/upload \
-  -H "Content-Type: application/json" \
-  -d '{"type": "logs", "provider": "aws_s3"}'
-```
-
-### Threat Hunting
-```bash
-curl -X POST http://localhost:5000/api/hunt/create \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Lateral Movement Hunt", "query": "SELECT * FROM logs WHERE lateral_movement = true"}'
-```
-
-### Asset Registration
-```bash
-curl -X POST http://localhost:5000/api/assets/register \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Web Server", "type": "server", "criticality": "high"}'
-```
-
-### Performance Monitoring
-```bash
-curl -X POST http://localhost:5000/api/performance/metric \
-  -H "Content-Type: application/json" \
-  -d '{"metric_name": "cpu_usage", "value": 85.5}'
-```
-
----
-
-## 📞 **Support**
-
-**Location:** K:\Tecknova  
-**Start:** `python app.py`  
-**Dashboard:** http://localhost:5000  
-**Test:** `python test_generator.py`  
-
----
-
-**Built for Tecknova Hackathon 2024** 🏆
->>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
