@@ -25,7 +25,7 @@
 
 ```bash
 cd K:\Tecknova
-pip install Flask Flask-CORS
+pip3 install Flask Flask-CORS
 python app.py
 ```
 
