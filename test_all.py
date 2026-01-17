@@ -283,5 +283,9 @@ print("  Test: python test_all.py")
 print("  Generate Data: python test_generator.py")
 
 print("\n" + "=" * 70)
+<<<<<<< HEAD
 print("✅ COMPREHENSIVE TEST COMPLETE!")
+=======
+print("✅ COMPREHENSIVE TEST COMPLETE")
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 print("=" * 70)

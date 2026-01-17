@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 let severityChart, mitreChart, timelineChart, detectionChart, geoChart, alertTrendChart, responseTimeChart, threatActorChart, trendChart;
 let trendData = [];
 let trendLabels = [];
 let lastAlertCount = 0;
 const maxTrendPoints = 20;
+=======
+let severityChart, mitreChart, timelineChart, detectionChart, geoChart, alertTrendChart, responseTimeChart, threatActorChart;
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 
 function showTab(tabName) {
     document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
@@ -26,24 +30,35 @@ async function loadStats() {
     document.getElementById('log-count').textContent = stats.total_logs;
     
     updateSeverityChart(stats.severity_distribution);
+<<<<<<< HEAD
     updateLiveTrendChart(stats.total_alerts);
     updateTopAttackers(stats.top_attackers);
     updateAIPrediction();
+=======
+    updateMitreChart(stats.mitre_techniques);
+    updateTopAttackers(stats.top_attackers);
+    updateTimelineChart();
+    updateGeoChart();
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 }
 
 function updateSeverityChart(data) {
     const ctx = document.getElementById('severityChart').getContext('2d');
     if (severityChart) severityChart.destroy();
     
+<<<<<<< HEAD
     const total = data.CRITICAL + data.HIGH + data.MEDIUM + data.LOW + data.INFO;
     document.getElementById('severityTotal').querySelector('div').textContent = total;
     
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     severityChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: ['Critical', 'High', 'Medium', 'Low', 'Info'],
             datasets: [{
                 data: [data.CRITICAL, data.HIGH, data.MEDIUM, data.LOW, data.INFO],
+<<<<<<< HEAD
                 backgroundColor: [
                     '#ef4444',
                     '#f97316', 
@@ -53,6 +68,10 @@ function updateSeverityChart(data) {
                 ],
                 borderWidth: 0,
                 hoverOffset: 15,
+=======
+                backgroundColor: ['#dc3545', '#fd7e14', '#ffc107', '#17a2b8', '#6c757d'],
+                borderWidth: 0,
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                 hoverBorderWidth: 3,
                 hoverBorderColor: '#fff'
             }]
@@ -60,18 +79,22 @@ function updateSeverityChart(data) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+<<<<<<< HEAD
             animation: {
                 animateRotate: true,
                 animateScale: true,
                 duration: 1500,
                 easing: 'easeInOutQuart'
             },
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
             plugins: {
                 legend: { 
                     position: 'bottom',
                     labels: {
                         padding: 20,
                         usePointStyle: true,
+<<<<<<< HEAD
                         font: { size: 13, weight: '600' },
                         color: '#fff',
                         generateLabels: function(chart) {
@@ -100,10 +123,18 @@ function updateSeverityChart(data) {
                 }
             },
             cutout: '70%'
+=======
+                        font: { size: 12 }
+                    }
+                }
+            },
+            cutout: '60%'
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
         }
     });
 }
 
+<<<<<<< HEAD
 function updateLiveTrendChart(alertCount) {
     const ctx = document.getElementById('trendChart').getContext('2d');
     
@@ -150,11 +181,33 @@ function updateLiveTrendChart(alertCount) {
                 pointHoverRadius: 8,
                 pointHoverBackgroundColor: '#a78bfa',
                 pointHoverBorderWidth: 3
+=======
+function updateMitreChart(data) {
+    const ctx = document.getElementById('mitreChart').getContext('2d');
+    if (mitreChart) mitreChart.destroy();
+    
+    const labels = Object.keys(data).slice(0, 5).map(label => label.split(' - ')[1] || label);
+    const values = Object.values(data).slice(0, 5);
+    
+    mitreChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Occurrences',
+                data: values,
+                backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                borderColor: '#667eea',
+                borderWidth: 1,
+                borderRadius: 4,
+                borderSkipped: false
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
+<<<<<<< HEAD
             animation: {
                 duration: 750,
                 easing: 'easeInOutQuart'
@@ -196,14 +249,29 @@ function updateLiveTrendChart(alertCount) {
                         font: { size: 11 },
                         padding: 8
                     }
+=======
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { 
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0,0,0,0.1)' },
+                    ticks: { font: { size: 11 } }
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                 },
                 x: {
                     grid: { display: false },
                     ticks: { 
+<<<<<<< HEAD
                         color: '#fff',
                         font: { size: 9 },
                         maxRotation: 45,
                         minRotation: 45
+=======
+                        font: { size: 10 },
+                        maxRotation: 45
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                     }
                 }
             }
@@ -252,15 +320,24 @@ function updateTimelineChart() {
             scales: {
                 y: {
                     beginAtZero: true,
+<<<<<<< HEAD
                     grid: { color: 'rgba(255,255,255,0.1)' },
                     ticks: { font: { size: 10 }, color: '#fff' }
+=======
+                    grid: { color: 'rgba(0,0,0,0.1)' },
+                    ticks: { font: { size: 10 } }
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                 },
                 x: {
                     grid: { display: false },
                     ticks: { 
                         font: { size: 10 },
+<<<<<<< HEAD
                         maxTicksLimit: 8,
                         color: '#fff'
+=======
+                        maxTicksLimit: 8
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                     }
                 }
             }
@@ -303,17 +380,26 @@ function updateGeoChart() {
                     labels: {
                         padding: 15,
                         usePointStyle: true,
+<<<<<<< HEAD
                         font: { size: 11 },
                         color: '#fff'
+=======
+                        font: { size: 11 }
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                     }
                 }
             },
             scales: {
                 r: {
                     beginAtZero: true,
+<<<<<<< HEAD
                     grid: { color: 'rgba(255,255,255,0.1)' },
                     ticks: { display: false },
                     pointLabels: { color: '#fff' }
+=======
+                    grid: { color: 'rgba(0,0,0,0.1)' },
+                    ticks: { display: false }
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                 }
             }
         }
@@ -388,6 +474,7 @@ async function loadIncidents() {
 }
 
 async function loadLogs() {
+<<<<<<< HEAD
     try {
         const response = await fetch('/api/logs?limit=50');
         const logs = await response.json();
@@ -440,6 +527,25 @@ async function loadLogs() {
         const container = document.getElementById('logs-container');
         container.innerHTML = '<div class="text-red-400 text-center py-8">Error loading logs. Check console for details.</div>';
     }
+=======
+    const response = await fetch('/api/logs?limit=50');
+    const logs = await response.json();
+    
+    const container = document.getElementById('logs-container');
+    container.innerHTML = '';
+    
+    logs.reverse().forEach(log => {
+        const logEntry = document.createElement('div');
+        logEntry.className = 'log-entry';
+        logEntry.innerHTML = `
+            <span class="log-time">${log.timestamp}</span>
+            <span class="log-ip">${log.source_ip || 'N/A'}</span>
+            <span class="log-severity severity-${log.severity.toLowerCase()}">${log.severity}</span>
+            <span class="log-message">${log.message || log.event_type || 'No message'}</span>
+        `;
+        container.appendChild(logEntry);
+    });
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 }
 
 function filterAlerts() {
@@ -452,12 +558,16 @@ function searchLogs() {
     
     logEntries.forEach(entry => {
         const text = entry.textContent.toLowerCase();
+<<<<<<< HEAD
         if (text.includes(searchTerm)) {
             entry.style.display = 'block';
             entry.style.animation = 'fadeIn 0.3s ease-out';
         } else {
             entry.style.display = 'none';
         }
+=======
+        entry.style.display = text.includes(searchTerm) ? 'flex' : 'none';
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     });
 }
 
@@ -480,6 +590,7 @@ function showNotification(title, message, severity = 'info', duration = 0) {
     const notificationId = 'notif_' + Date.now();
     notification.id = notificationId;
     
+<<<<<<< HEAD
     const icons = {
         CRITICAL: '<svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>',
         HIGH: '<svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>',
@@ -503,16 +614,33 @@ function showNotification(title, message, severity = 'info', duration = 0) {
                 </div>
             </div>
         </div>
+=======
+    notification.innerHTML = `
+        <div class="notification-header">
+            <div class="notification-title">${title}</div>
+            <button class="notification-close" onclick="closeNotification('${notificationId}')">&times;</button>
+        </div>
+        <div class="notification-body">${message}</div>
+        <div class="notification-time">${new Date().toLocaleTimeString()}</div>
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     `;
     
     container.appendChild(notification);
     
+<<<<<<< HEAD
+=======
+    // Only auto-remove if duration > 0
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     if (duration > 0) {
         setTimeout(() => {
             closeNotification(notificationId);
         }, duration);
     }
     
+<<<<<<< HEAD
+=======
+    // Play sound for critical/high alerts
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     if (severity === 'CRITICAL' || severity === 'HIGH') {
         playAlertSound();
     }
@@ -521,13 +649,18 @@ function showNotification(title, message, severity = 'info', duration = 0) {
 function closeNotification(notificationId) {
     const notification = document.getElementById(notificationId);
     if (notification) {
+<<<<<<< HEAD
         notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+=======
+        notification.style.animation = 'slideOut 0.3s ease-out';
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
         setTimeout(() => {
             notification.remove();
         }, 300);
     }
 }
 
+<<<<<<< HEAD
 // Add slideOut animation
 const style = document.createElement('style');
 style.textContent = `
@@ -538,6 +671,8 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 function playAlertSound() {
     const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT');
     audio.volume = 0.3;
@@ -559,7 +694,11 @@ async function checkForNewLogs() {
                         `📋 New ${log.severity} Log`,
                         `${log.event_type || 'Event'} from ${log.source_ip || 'Unknown'}: ${log.message || 'No message'}`,
                         log.severity,
+<<<<<<< HEAD
                         1000
+=======
+                        0
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                     );
                 }
             });
@@ -585,7 +724,11 @@ async function checkForNewAlerts() {
                     `🚨 ${alert.severity} Alert`,
                     `${alert.title} from ${alert.source_ip || 'Unknown'}`,
                     alert.severity,
+<<<<<<< HEAD
                     1000
+=======
+                    0
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                 );
             });
         }
@@ -602,7 +745,11 @@ function testNotification() {
         '🧪 Test Alert',
         'This is a test notification to verify the popup system is working.',
         'HIGH',
+<<<<<<< HEAD
         1000
+=======
+        8000
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     );
 }
 
@@ -623,12 +770,18 @@ function updateTopAttackers(attackers) {
 function loadAnalyticsCharts() {
     updateAlertTrendChart();
     updateDetectionChart();
+<<<<<<< HEAD
+=======
+    updateResponseTimeChart();
+    updateThreatActorChart();
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 }
 
 function updateAlertTrendChart() {
     const ctx = document.getElementById('alertTrendChart').getContext('2d');
     if (alertTrendChart) alertTrendChart.destroy();
     
+<<<<<<< HEAD
     fetch('/api/alerts')
         .then(res => res.json())
         .then(alerts => {
@@ -691,12 +844,64 @@ function updateAlertTrendChart() {
                 }
             });
         });
+=======
+    const days = [];
+    const criticalAlerts = [];
+    const highAlerts = [];
+    
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        days.push(date.toLocaleDateString('en-US', { weekday: 'short' }));
+        criticalAlerts.push(Math.floor(Math.random() * 8) + 2);
+        highAlerts.push(Math.floor(Math.random() * 12) + 5);
+    }
+    
+    alertTrendChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: days,
+            datasets: [
+                {
+                    label: 'Critical',
+                    data: criticalAlerts,
+                    borderColor: '#dc3545',
+                    backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                    borderWidth: 3,
+                    fill: false,
+                    tension: 0.4
+                },
+                {
+                    label: 'High',
+                    data: highAlerts,
+                    borderColor: '#fd7e14',
+                    backgroundColor: 'rgba(253, 126, 20, 0.1)',
+                    borderWidth: 3,
+                    fill: false,
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'top', labels: { usePointStyle: true } }
+            },
+            scales: {
+                y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.1)' } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 }
 
 function updateDetectionChart() {
     const ctx = document.getElementById('detectionChart').getContext('2d');
     if (detectionChart) detectionChart.destroy();
     
+<<<<<<< HEAD
     fetch('/api/alerts')
         .then(res => res.json())
         .then(alerts => {
@@ -744,6 +949,33 @@ function updateDetectionChart() {
                 }
             });
         });
+=======
+    detectionChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Rule-based', 'ML Anomaly', 'Behavioral', 'Signature', 'Threat Intel'],
+            datasets: [{
+                label: 'Effectiveness',
+                data: [85, 78, 92, 88, 82],
+                borderColor: '#667eea',
+                backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: { display: false }
+                }
+            }
+        }
+    });
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 }
 
 function updateResponseTimeChart() {
@@ -765,8 +997,13 @@ function updateResponseTimeChart() {
             maintainAspectRatio: false,
             plugins: { legend: { display: false } },
             scales: {
+<<<<<<< HEAD
                 y: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } },
                 x: { grid: { display: false }, ticks: { color: '#fff' } }
+=======
+                y: { beginAtZero: true },
+                x: { grid: { display: false } }
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
             }
         }
     });
@@ -792,7 +1029,11 @@ function updateThreatActorChart() {
             plugins: {
                 legend: {
                     position: 'bottom',
+<<<<<<< HEAD
                     labels: { usePointStyle: true, font: { size: 11 }, color: '#fff' }
+=======
+                    labels: { usePointStyle: true, font: { size: 11 } }
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                 }
             },
             cutout: '50%'
@@ -811,7 +1052,11 @@ document.addEventListener('DOMContentLoaded', () => {
             '🛡️ SOC Platform Active',
             'Security Operations Center is now monitoring. Core features operational.',
             'INFO',
+<<<<<<< HEAD
             1000
+=======
+            10000
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
         );
     }, 2000);
     
@@ -829,6 +1074,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkForNewLogs();
     }, 5000);
 });
+<<<<<<< HEAD
 
 // Report Generation Functions
 async function generateExecutiveReport() {
@@ -948,3 +1194,5 @@ function addRecentReport(name, filename) {
     `;
     container.insertBefore(reportItem, container.firstChild);
 }
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2

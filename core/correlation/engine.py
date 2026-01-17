@@ -10,6 +10,7 @@ class CorrelationEngine:
         
     def analyze(self, normalized_log):
         alerts = []
+<<<<<<< HEAD
         
         # Check if log already has severity (from test generator)
         if normalized_log.get('severity'):
@@ -27,12 +28,15 @@ class CorrelationEngine:
             alerts.append(alert)
         
         # Run correlation detection
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
         alerts.extend(self._detect_brute_force(normalized_log))
         alerts.extend(self._detect_port_scan(normalized_log))
         alerts.extend(self._detect_privilege_escalation(normalized_log))
         alerts.extend(self._detect_suspicious_login(normalized_log))
         return alerts
     
+<<<<<<< HEAD
     def _get_alert_title(self, event_type):
         titles = {
             'ransomware': 'Ransomware Attack Detected',
@@ -89,6 +93,8 @@ class CorrelationEngine:
         }
         return scores.get(severity, 5.0)
     
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     def _detect_brute_force(self, log):
         if 'failed' in str(log.get('message', '')).lower() or log.get('action') == 'DENY':
             key = f"brute_force_{log['source_ip']}"
@@ -111,8 +117,12 @@ class CorrelationEngine:
                     'count': len(recent_events),
                     'timestamp': datetime.now().isoformat(),
                     'mitre_attack': 'T1110 - Brute Force',
+<<<<<<< HEAD
                     'description': f"Detected {len(recent_events)} failed attempts from {log['source_ip']}",
                     'priority_score': 7.8
+=======
+                    'description': f"Detected {len(recent_events)} failed attempts from {log['source_ip']}"
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
                 }]
         return []
     

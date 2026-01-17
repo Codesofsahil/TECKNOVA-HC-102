@@ -23,7 +23,10 @@ from core.enhanced_services import (
 )
 from datetime import datetime
 import json
+<<<<<<< HEAD
 import psutil
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 
 app = Flask(__name__, template_folder='web/templates', static_folder='web/static')
 app.config.from_object(Config)
@@ -59,6 +62,7 @@ backup_manager = BackupManager()
 rate_limiter = RateLimiter()
 audit_logger = AuditLogger()
 
+<<<<<<< HEAD
 # Google OAuth Configuration
 GOOGLE_CLIENT_ID = "884878582276-ouss9ak8h466gmjrd6t53j084bd9uk0a.apps.googleusercontent.com"
 ALLOWED_DOMAINS = ["gmail.com"]  # Only allow Gmail addresses
@@ -72,6 +76,8 @@ registered_users = {
     }
 }
 
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 # In-memory log storage with persistence
 logs_storage = []
 
@@ -98,6 +104,7 @@ def save_logs_to_file():
 
 @app.route('/')
 def index():
+<<<<<<< HEAD
     return render_template('login.html')
 
 @app.route('/dashboard')
@@ -112,6 +119,10 @@ def login_page():
 def test():
     return render_template('test.html')
 
+=======
+    return render_template('dashboard.html')
+
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 @app.route('/api/ingest', methods=['POST'])
 def ingest_log():
     data = request.json
@@ -312,6 +323,7 @@ def toggle_alert_sound():
     enabled = alert_sound.toggle()
     return jsonify({'enabled': enabled})
 
+<<<<<<< HEAD
 @app.route('/api/google-login', methods=['POST'])
 def google_login():
     """Handle Google OAuth login - Simplified version"""
@@ -449,6 +461,26 @@ def api_login():
             'status': 'error',
             'message': 'Invalid email or password'
         }), 401
+=======
+@app.route('/api/auth/login', methods=['POST'])
+def login():
+    data = request.json
+    ip = request.remote_addr
+    
+    # Check rate limit
+    rate_check = rate_limiter.check_rate_limit(ip, 'auth')
+    if not rate_check['allowed']:
+        return jsonify({'error': 'Rate limit exceeded', 'retry_after': rate_check.get('retry_after')}), 429
+    
+    result = auth_manager.login(data.get('username'), data.get('password'))
+    
+    # Log attempt
+    audit_logger.log_login(data.get('username'), ip, result is not None)
+    
+    if result:
+        return jsonify(result)
+    return jsonify({'error': 'Invalid credentials'}), 401
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 
 @app.route('/api/auth/logout', methods=['POST'])
 def logout():
@@ -590,6 +622,7 @@ def export_audit():
     trail = audit_logger.export_audit_trail()
     return jsonify(trail)
 
+<<<<<<< HEAD
 @app.route('/api/clear-logs', methods=['POST'])
 def clear_logs():
     """Clear all logs and reset counters"""
@@ -824,6 +857,12 @@ def generate_demo_attacks():
         'total_alerts': len(alert_manager.get_alerts()),
         'message': f'Generated {attacks_sent} demo attacks'
     })
+=======
+@app.route('/api/rate-limit/stats', methods=['GET'])
+def rate_limit_stats():
+    stats = rate_limiter.get_stats()
+    return jsonify(stats)
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 
 def get_top_attackers(alerts, limit=5):
     ip_counts = {}

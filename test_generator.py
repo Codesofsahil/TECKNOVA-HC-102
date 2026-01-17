@@ -7,8 +7,12 @@ API_URL = "http://localhost:5000/api/ingest"
 
 SAMPLE_IPS = [
     "192.168.1.100", "192.168.1.101", "10.0.0.50",
+<<<<<<< HEAD
     "192.168.100.25", "172.16.0.10", "203.0.113.45",
     "185.220.101.5", "45.142.214.8", "91.219.236.12"
+=======
+    "192.168.100.25", "172.16.0.10", "203.0.113.45"
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 ]
 
 SAMPLE_EVENTS = [
@@ -17,6 +21,7 @@ SAMPLE_EVENTS = [
     {"event_type": "port_scan", "action": "DETECT", "message": "Port scanning detected"},
     {"event_type": "privilege_escalation", "action": "ALERT", "message": "sudo command executed"},
     {"event_type": "file_access", "action": "ALLOW", "message": "File accessed"},
+<<<<<<< HEAD
     {"event_type": "sql_injection", "action": "BLOCK", "message": "SQL injection attempt detected"},
     {"event_type": "xss_attack", "action": "BLOCK", "message": "Cross-site scripting attempt"},
     {"event_type": "malware_detected", "action": "QUARANTINE", "message": "Malicious file detected"},
@@ -32,6 +37,8 @@ SAMPLE_EVENTS = [
     {"event_type": "crypto_mining", "action": "BLOCK", "message": "Cryptocurrency mining detected"},
     {"event_type": "web_shell", "action": "QUARANTINE", "message": "Web shell uploaded"},
     {"event_type": "command_injection", "action": "BLOCK", "message": "Command injection attempt"},
+=======
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
 ]
 
 def generate_log():
@@ -43,7 +50,11 @@ def generate_log():
         "source_ip": source_ip,
         "dest_ip": "10.0.1.100",
         "source_port": random.randint(1024, 65535),
+<<<<<<< HEAD
         "dest_port": random.choice([22, 80, 443, 3389, 445, 21, 23, 25, 53, 135]),
+=======
+        "dest_port": random.choice([22, 80, 443, 3389, 445]),
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
         "event_type": event["event_type"],
         "action": event["action"],
         "user": f"user{random.randint(1, 5)}",
@@ -59,7 +70,11 @@ def send_log(log):
         print(f"✗ Error: {e}")
 
 def simulate_brute_force():
+<<<<<<< HEAD
     print("\nSimulating Brute Force Attack...")
+=======
+    print("\n🔴 Simulating Brute Force Attack...")
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     attacker_ip = "192.168.100.25"
     for i in range(7):
         log = {
@@ -75,7 +90,11 @@ def simulate_brute_force():
         time.sleep(0.5)
 
 def simulate_port_scan():
+<<<<<<< HEAD
     print("\nSimulating Port Scan...")
+=======
+    print("\n🔴 Simulating Port Scan...")
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     scanner_ip = "172.16.0.10"
     for port in range(20, 35):
         log = {
@@ -90,6 +109,7 @@ def simulate_port_scan():
         send_log(log)
         time.sleep(0.3)
 
+<<<<<<< HEAD
 def simulate_advanced_attacks():
     print("\nSimulating Advanced Persistent Threat...")
     apt_ip = "185.220.101.5"
@@ -342,12 +362,17 @@ def generate_low_attacks():
 
 def main():
     print("SOC Platform - Enhanced Attack Generator")
+=======
+def main():
+    print("🚀 SOC Platform - Log Generator")
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
     print("=" * 50)
     
     while True:
         print("\n1. Generate random logs")
         print("2. Simulate brute force attack")
         print("3. Simulate port scan")
+<<<<<<< HEAD
         print("4. Simulate advanced persistent threat")
         print("5. Simulate web application attacks")
         print("6. Generate CRITICAL attacks")
@@ -358,6 +383,10 @@ def main():
         print("11. Full attack simulation (all types)")
         print("12. Continuous random generation")
         print("13. Exit")
+=======
+        print("4. Continuous random generation")
+        print("5. Exit")
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
         
         choice = input("\nSelect option: ")
         
@@ -372,6 +401,7 @@ def main():
         
         elif choice == "3":
             simulate_port_scan()
+<<<<<<< HEAD
             
         elif choice == "4":
             simulate_advanced_attacks()
@@ -422,6 +452,10 @@ def main():
             print("\nFull simulation complete!")
         
         elif choice == "12":
+=======
+        
+        elif choice == "4":
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
             print("Generating logs continuously (Ctrl+C to stop)...")
             try:
                 while True:
@@ -430,8 +464,16 @@ def main():
             except KeyboardInterrupt:
                 print("\nStopped.")
         
+<<<<<<< HEAD
         elif choice == "13":
             break
 
 if __name__ == "__main__":
     main()
+=======
+        elif choice == "5":
+            break
+
+if __name__ == "__main__":
+    main()
+>>>>>>> fcd86bfc6412671002f4a4b3bd4aec468bd27fc2
